@@ -1,0 +1,28 @@
+{
+    "name": "Beamable.Examples",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Beamable.Runtime.Common",
+        "Unity.Beamable",
+        "Beamable.SmallerJSON",
+        "Beamable.Platform",
+        "Beamable.Service",
+        "Beamable.Config",
+        "Beamable.ConsoleCommands",
+        "Unity.TextMeshPro",
+        "Beamable.JsonSerializable",
+        "Beamable.Coroutines",
+        "Beamable.Spew",
+        "Unity.Addressables",
+        "Unity.ResourceManager"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
