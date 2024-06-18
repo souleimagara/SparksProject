@@ -72,13 +72,13 @@ public class Models
         public int CountInauthDays { get; set; }
 
         [JsonProperty("last_inauth_timestamp")]
-        public DateTime? LastInauthTimestamp { get; set; }  // nullable since it's "null" in the JSON
+        public DateTime? LastInauthTimestamp { get; set; }  
 
         [JsonProperty("total_playtime_hours")]
         public double TotalPlaytimeHours { get; set; }
 
         [JsonProperty("total_motion_hours")]
-        public double? TotalMotionHours { get; set; }  // nullable since it's "null" in the JSON
+        public double? TotalMotionHours { get; set; }  
 
         [JsonProperty("inauth_playtime_percentage")]
         public double InauthPlaytimePercentage { get; set; }

@@ -8,5 +8,5 @@ public class LeaderboardEntry
  
     public int StatutSparks { get; set; }
 
-    // Add other properties that you expect to receive from the leaderboard
+  
 }

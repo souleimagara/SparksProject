@@ -101,7 +101,7 @@ public class TimePlayManager : MonoBehaviour
             Debug.Log("Found ArrayDict: Processing entries.");
 
            
-            // Optionally, iterate through all key-value pairs
+
             foreach (var kvp in dict)
             {
                 Debug.Log($"Key: {kvp.Key}, Value: {kvp.Value}");
@@ -132,12 +132,11 @@ public class TimePlayManager : MonoBehaviour
     {
         Debug.Log("Notification received: " + obj);
 
-        // Attempt to cast the received object to the expected type
         if (obj is string jsonString)
         {
             try
             {
-                // Deserialize the JSON string back into NotificationData
+
                 NotificationData notificationData = JsonUtility.FromJson<NotificationData>(jsonString);
                 if (notificationData != null)
                 {
@@ -371,7 +370,7 @@ public class TimePlayManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError(e);
-            return -1;  // Return -1 or any other value to indicate an error or unknown status.
+            return -1;  
         }
     }
 

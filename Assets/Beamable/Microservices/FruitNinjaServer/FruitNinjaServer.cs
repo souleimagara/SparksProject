@@ -172,8 +172,7 @@ namespace Beamable.Microservices
             BeamableLogger.Log(" The result of continetncode : " + result.GeoContinentCode);
 
             var LeaderboardsService = Services.Leaderboards;
-            // Populate with custom values 
-            // Format the current date and time to the desired format
+  
 
             Dictionary<string, object> leaderboardStats = new Dictionary<string, object>();
             leaderboardStats.Add("player_country_code", result.CountryCode);
@@ -214,7 +213,7 @@ namespace Beamable.Microservices
         {
             long sparksBalance = await Services.Inventory.GetCurrency(Sparksapproved);
 
-            // Convert long to int
+
             int sparksStats = (int)sparksBalance;
             BeamableLogger.Log(" The sparksStats : " + sparksStats);
             return sparksStats;

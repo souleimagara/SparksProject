@@ -95,7 +95,7 @@ namespace Beamable.Microservices
             {
                 BeamableLogger.LogError($"Failed to get sparks status for user {otherUserId}: {ex}");
                 ReturnToAdminContext(currentUserId);
-                throw; // Properly handle or escalate errors
+                throw; 
             }
         }
 
@@ -145,8 +145,8 @@ namespace Beamable.Microservices
 
                 //var job = await Services.Scheduler
                 //    .Schedule()
-                //    .Microservice<LeaderboardServer>() // Execute a type-safe method on the LeaderboardServer
-                //    .Run(t => t.sparkcontroller, leaderboardId, gamertag) // Run AwardBonus with the provided parameters
+                //    .Microservice<LeaderboardServer>() 
+                //    .Run(t => t.sparkcontroller, leaderboardId, gamertag) 
                 //    .OnCron(c => c.Daily(18)) // Run at 6 PM
                 //    .Save($"awarding0-{Context.UserId}"); // Save the job with a unique identifier
 
@@ -155,8 +155,8 @@ namespace Beamable.Microservices
 
                 // var job = await Services.Scheduler
                 // .Schedule()
-                // .Microservice<LeaderboardServer>() // Execute a type-safe method on the ExampleService
-                // .Run(t => t.AwardBonus, leaderboardId, gamertag) // Run AwardBonus with leaderboardId and gamertag
+                // .Microservice<LeaderboardServer>() 
+                // .Run(t => t.AwardBonus, leaderboardId, gamertag) 
                 //.OnCron(c => c.AtSecond(0).EveryNthMinute(2).EveryHour().EveryDayOfTheWeek().EveryMonth())
                 // .Save($"awarding04-{gamertag}"); // Save the job
 
@@ -169,8 +169,8 @@ namespace Beamable.Microservices
                 int hour = scheduledTime.Hour;
                 var job = await Services.Scheduler
                     .Schedule()
-                    .Microservice<LeaderboardServer>() // Execute a type-safe method on the ExampleService
-                    .Run(t => t.sparkcontroller, leaderboardId, gamertag) // Run AwardBonus with leaderboardId and gamertag
+                    .Microservice<LeaderboardServer>() 
+                    .Run(t => t.sparkcontroller, leaderboardId, gamertag) 
                    .OnCron(c => c.AtSecond(0).AtMinute(minute).AtHour(hour).EveryDayOfTheWeek().EveryMonth()) // Run after 3 minutes
                     .Save($"sparkcontroller-{gamertag}"); // Save the job
                 #endregion
@@ -200,9 +200,9 @@ namespace Beamable.Microservices
 
                 if (jobExecutions.Count > 0)
                 {
-                    var firstJobExecution = jobExecutions[0]; // Assuming you want the first job execution
+                    var firstJobExecution = jobExecutions[0]; 
 
-                    // Initialize the Job object with properties from the job execution
+                   
                     var existingJob = new Job
                     {
                         id = firstJobExecution.ToString(),
@@ -215,7 +215,7 @@ namespace Beamable.Microservices
                 else
                 {
                     BeamableLogger.Log("No job executions found.");
-                    return null; // Or handle accordingly if no job executions are found
+                    return null; 
                 }
             }
         }
@@ -325,7 +325,7 @@ namespace Beamable.Microservices
 
             if (executions.Count > 0)
             {
-                var firstJobExecution = executions[0]; // Assuming you want the first job execution
+                var firstJobExecution = executions[0]; 
 
 
 
@@ -422,7 +422,6 @@ namespace Beamable.Microservices
             var LeaderboardsService = Services.Leaderboards;
             LeaderBoardView leaderBoardView = await LeaderboardsService.GetBoard(id, 0, 100000, gamertag);
 
-            // Ensure we use the correct type for the rankings
             List<RankEntry> entries = new List<RankEntry>(leaderBoardView.rankings);
 
             const int BatchSize = 100; // Adjust the batch size as needed
@@ -475,8 +474,8 @@ namespace Beamable.Microservices
 
             var job = await Services.Scheduler
                     .Schedule()
-                    .Microservice<LeaderboardServer>() // Execute a type-safe method on the LeaderboardServer
-                    .Run(t => t.sparkcontroller, leaderboardId, gamertag) // Run AwardBonus with the provided parameters
+                    .Microservice<LeaderboardServer>() 
+                    .Run(t => t.sparkcontroller, leaderboardId, gamertag) 
                     .OnCron(c => c.Daily(time)) // Run at 3 PM
                     .Save(name + "_" +Context.UserId); // Save the job with a unique identifier
 
